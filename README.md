@@ -1,32 +1,51 @@
-# React + TypeScript + Vite
+# React + Redux + TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A React application demonstrating Redux state management without Redux Toolkit, built with Vite and TypeScript.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19
+- TypeScript
+- Redux (manual setup)
+- React-Redux
+- Redux-Logger
+- Vite
 
-## React Compiler
+## Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```
+src/
+├── store/
+│   ├── actions/
+│   │   └── counterActions.ts   # Action types and action creators
+│   ├── reducers/
+│   │   ├── counterReducer.ts   # Counter reducer
+│   │   └── index.ts            # Combined root reducer
+│   └── store.ts                # Redux store with logger middleware
+├── components/
+│   ├── Counter.tsx             # Counter component using useSelector & useDispatch
+│   └── Counter.module.css
+├── App.tsx
+└── main.tsx                    # Redux Provider setup
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Getting Started
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+3. Open `http://localhost:5173/` in your browser.
+
+## Features
+
+- Global state management with Redux
+- Increment, decrement, and reset counter actions
+- Redux Logger middleware logs state changes to the browser console
+- TypeScript types for state and dispatch
