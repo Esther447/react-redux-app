@@ -12,15 +12,7 @@ const initialState: CounterState = {
   value: 0,
 };
 
-type CounterAction =
-  | { type: typeof INCREMENT }
-  | { type: typeof DECREMENT }
-  | { type: typeof RESET };
-
-export const counterReducer = (
-  state = initialState,
-  action: CounterAction,
-): CounterState => {
+export const counterReducer = (state = initialState, action: any): CounterState => {
   switch (action.type) {
     case INCREMENT:
       return { value: state.value + 1 };

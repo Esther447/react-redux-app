@@ -1,15 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
-import type { RootState, AppDispatch } from "../store/store";
-import {
-  increment,
-  decrement,
-  reset,
-} from "../store/actions/counterActions";
+import { useSelector, useDispatch } from "react-redux";
+import type { RootState } from "../store/store";
+import { increment, decrement, reset } from "../store/actions/counterActions";
 import styles from "./Counter.module.css";
 
 const Counter = () => {
   const count = useSelector((state: RootState) => state.counter.value);
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.counterContainer}>
